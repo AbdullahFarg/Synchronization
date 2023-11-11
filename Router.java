@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.Semaphore;
 public class Router {
     private final List<Boolean> connections;
     private final Semaphore semaphore;
@@ -10,7 +9,7 @@ public class Router {
         for (int i = 0; i < maxConnections; i++) {
             connections.add(false);
         }
-        semaphore = new Semaphore(maxConnections, true);
+        semaphore = new Semaphore(maxConnections);
     }
 
     public int connect() throws InterruptedException{
