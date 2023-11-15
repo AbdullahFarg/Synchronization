@@ -12,7 +12,6 @@ public class Device extends Thread {
     }
     public void run() {
         try {
-//            router.arrived(this);
             router.semaphore.acquire(this);
             connectionID = router.connect(this);
             System.out.println("Connection " + connectionID + ": (" + name + ") Occupied");
